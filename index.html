@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Weekend Driver & Guided Excursions</title>
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --card-bg: #1e293b;
+      --accent: #22c55e;
+      --accent-hover: #16a34a;
+      --border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 32px auto;
+      padding: 0 16px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 24px auto;
+    }
+
+    .grid-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 32px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 16px;
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+    }
+
+    .trip-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .trip-card h3 {
+      margin-top: 0;
+      color: #fff;
+    }
+
+    .badge {
+      background-color: rgba(34, 197, 94, 0.15);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .booking-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      height: fit-content;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: var(--text-muted);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      background-color: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: #fff;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .confirmation-box {
+      background-color: #14532d;
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      padding: 20px;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+
+    .confirmation-box h3 {
+      margin-top: 0;
+      color: #4ade80;
+    }
+
+    .saved-trips-section {
+      margin-top: 24px;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+
+    .saved-trip-item {
+      background-color: #0f172a;
+      border: 1px solid var(--border);
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+
+    .clear-btn {
+      background-color: #ef4444;
+      color: white;
+      margin-top: 12px;
+      padding: 8px;
+      font-size: 12px;
+    }
+
+    .clear-btn:hover {
+      background-color: #dc2626;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Weekend<span>Driver</span></div>
+    <nav>
+      <a href="#trips">Trip Packages</a>
+      <a href="#booking">Book a Ride</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Explore the Island & Coast on Weekends</h1>
+      <p>Comfortable, private, and flexible weekend driving services for day trips, coastal tours, and transfers.</p>
+    </section>
+
+    <div class="grid-layout">
+      
+      <!-- Trips Catalog -->
+      <section id="trips">
+        <h2 class="section-title">Popular Weekend Trips</h2>
+
+        <article class="trip-card">
+          <span class="badge">Full Day • 8 Hours</span>
+          <h3>Coastal & Beach Tour</h3>
+          <p>Relax and explore scenic coastal roads, stop at scenic viewpoints, and visit top local beaches at your own pace.</p>
+        </article>
+
+        <article class="trip-card">
+          <span class="badge">Half Day • 4 Hours</span>
+          <h3>Island Nature & Mountain Excursion</h3>
+          <p>Discover inland viewpoints, national parks, and local cultural landmarks with hassle-free transport.</p>
+        </article>
+
+        <article class="trip-card">
+          <span class="badge">Custom Transfer</span>
+          <h3>Airport or Event Transfers</h3>
+          <p>Reliable weekend pickup and drop-off for special events, celebrations, or travel connections.</p>
+        </article>
+      </section>
+
+      <!-- Booking & LocalStorage Container -->
+      <section id="booking" class="booking-card">
+        <h3>Request a Weekend Trip</h3>
+        
+        <form id="bookingForm">
+          <div class="form-group">
+            <label for="fullName">Your Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="e.g. John Smith" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone / WhatsApp</label>
+            <input type="tel" id="phone" name="phone" placeholder="+230 5123 4567" required>
+          </div>
+
+          <div class="form-group">
+            <label for="tripType">Trip Package</label>
+            <select id="tripType" name="tripType" required>
+              <option value="">Select trip type...</option>
+              <option value="Coastal & Beach Tour">Coastal & Beach Tour (Full Day)</option>
+              <option value="Nature & Mountain Excursion">Nature & Mountain Excursion (Half Day)</option>
+              <option value="Airport / Event Transfer">Airport / Event Transfer</option>
+              <option value="Custom Itinerary">Custom Itinerary</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="tripDate">Preferred Date</label>
+            <input type="date" id="tripDate" name="tripDate" required>
+          </div>
+
+          <div class="form-group">
+            <label for="passengers">Number of Passengers</label>
+            <select id="passengers" name="passengers">
+              <option value="1">1 Passenger</option>
+              <option value="2">2 Passengers</option>
+              <option value="3">3 Passengers</option>
+              <option value="4">4 Passengers</option>
+            </select>
+          </div>
+
+          <button type="submit">Send Booking Request</button>
+        </form>
+
+        <div id="confirmationSummary" style="display: none;"></div>
+
+        <!-- Saved Trips List Section -->
+        <div class="saved-trips-section">
+          <h4>Your Saved Bookings (Browser Storage)</h4>
+          <div id="savedTripsList">
+            <p style="font-size: 13px; color: var(--text-muted);">No saved bookings yet.</p>
+          </div>
+          <button id="clearStorageBtn" class="clear-btn" style="display: none;">Clear All Saved Bookings</button>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Private Weekend Driver Services • Safe & Comfortable Trips</p>
+  </footer>
+
+  <!-- ------------------------------------------------------------------- -->
+  <!-- LOCALSTORAGE JAVASCRIPT LOGIC                                       -->
+  <!-- ------------------------------------------------------------------- -->
+  <!-- ------------------------------------------------------------------- -->
+  <!-- LOCALSTORAGE JAVASCRIPT WITH INDIVIDUAL DELETE                      -->
+  <!-- ------------------------------------------------------------------- -->
+  <script>
+    const bookingForm = document.getElementById('bookingForm');
+    const confirmationSummary = document.getElementById('confirmationSummary');
+    const savedTripsList = document.getElementById('savedTripsList');
+    const clearStorageBtn = document.getElementById('clearStorageBtn');
+
+    const STORAGE_KEY = 'driver_weekend_bookings';
+
+    // 1. Get stored bookings array
+    function getStoredBookings() {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      return stored ? JSON.parse(stored) : [];
+    }
+
+    // 2. Render all saved trips with an individual Delete button
+    function displaySavedBookings() {
+      const bookings = getStoredBookings();
+
+      if (bookings.length === 0) {
+        savedTripsList.innerHTML = `<p style="font-size: 13px; color: var(--text-muted);">No saved bookings yet.</p>`;
+        clearStorageBtn.style.display = 'none';
+        return;
+      }
+
+      clearStorageBtn.style.display = 'block';
+
+      // Pass each trip's unique ID (b.id) to deleteSingleTrip(id)
+      savedTripsList.innerHTML = bookings.map(b => `
+        <div class="saved-trip-item" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <strong>${b.trip}</strong><br>
+            <span style="color: var(--text-muted);">Name:</span> ${b.name} | 
+            <span style="color: var(--text-muted);">Date:</span> ${b.date} | 
+            <span style="color: var(--text-muted);">Pax:</span> ${b.passengers}
+          </div>
+          <button 
+            onclick="deleteSingleTrip(${b.id})" 
+            style="width: auto; padding: 6px 10px; background: #ef4444; color: white; font-size: 12px; margin-left: 10px;">
+            ✕
+          </button>
+        </div>
+      `).join('');
+    }
+
+    // 3. NEW: Function to delete a specific trip by its unique ID
+    function deleteSingleTrip(tripId) {
+      // Get all current bookings
+      const currentBookings = getStoredBookings();
+
+      // Filter out the trip that matches the clicked tripId
+      const updatedBookings = currentBookings.filter(b => b.id !== tripId);
+
+      // Save the filtered array back to localStorage
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedBookings));
+
+      // Re-render the list on screen
+      displaySavedBookings();
+    }
+
+    // 4. Handle form submit
+    bookingForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const newBooking = {
+        id: Date.now(), // Unique ID generated from timestamp
+        name: document.getElementById('fullName').value,
+        phone: document.getElementById('phone').value,
+        trip: document.getElementById('tripType').value,
+        date: document.getElementById('tripDate').value,
+        passengers: document.getElementById('passengers').value
+      };
+
+      const currentBookings = getStoredBookings();
+      currentBookings.push(newBooking);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(currentBookings));
+
+      bookingForm.style.display = 'none';
+      confirmationSummary.innerHTML = `
+        <div class="confirmation-box">
+          <h3>✅ Booking Saved to Storage!</h3>
+          <p>Thank you <strong>${newBooking.name}</strong>, your request has been logged locally.</p>
+          <button onclick="resetForm()" style="margin-top: 8px;">Book Another Trip</button>
+        </div>
+      `;
+      confirmationSummary.style.display = 'block';
+
+      displaySavedBookings();
+    });
+
+    // Reset Form
+    function resetForm() {
+      bookingForm.reset();
+      bookingForm.style.display = 'block';
+      confirmationSummary.style.display = 'none';
+    }
+
+    // Clear all storage button
+    clearStorageBtn.addEventListener('click', function() {
+      localStorage.removeItem(STORAGE_KEY);
+      displaySavedBookings();
+    });
+
+    // Initial render when page loads
+    displaySavedBookings();
+  </script>
+</body>
+</html>
